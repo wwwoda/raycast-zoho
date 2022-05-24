@@ -1,10 +1,14 @@
 /* eslint-disable max-len */
 import { environment } from '@raycast/api';
 import Conf from 'conf';
-import type { ChartOfAccountEntity, BankAccountEntity, ContactEntity, ExpenseEntity, TaxEntity } from './types';
+// import { createRequire } from 'module';
+import type {
+  ChartOfAccountEntity, BankAccountEntity, ContactEntity, ExpenseEntity, TaxEntity,
+} from './types';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const Cache = require('cache-conf');
+// const Cache = createRequire(import.meta.url)('cache-conf');
 
 export interface ZohoCache {
   vendorEntities: ContactEntity[];
