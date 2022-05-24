@@ -4,12 +4,13 @@ import { Values } from './types';
 
 export const validate = async (values: Values): Promise<boolean> => {
   const message = [];
+
   if (values.expenseDate === null) {
     message.push('Expense date missing!');
   }
 
   if (values.newVendorCheck && !values.newVendor) {
-    message.push('Missing new vendor name');
+    message.push('Missing new vendor name!');
   }
 
   if (values.amount === '') {
@@ -20,6 +21,10 @@ export const validate = async (values: Values): Promise<boolean> => {
 
   if (values.isCreditCard && !values.creditCardDate) {
     message.push('Month of debiting missing!');
+  }
+
+  if (!values.vendor && !values.newVendorCheck && !values.customExpenseReference) {
+    message.push('Custom expense reference empty!');
   }
 
   if (values.receipt === '') {

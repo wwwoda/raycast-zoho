@@ -51,7 +51,7 @@ export default function Command() {
       }
     >
       <Form.DatePicker id="expenseDate" title="Expense Date" value={expenseDate} onChange={setExpenseDate} />
-      <Form.Dropdown id="vendor" title="Select Vendor" value={vendor} onChange={setVendor} defaultValue="">
+      <Form.Dropdown id="vendor" title="Select Vendor" value={vendor} onChange={setVendor}>
         <Form.Dropdown.Item value="" title="Keine Angabe" key="0" />
         {vendors.map((entity) => (
           <Form.Dropdown.Item value={entity.contact_id} title={entity.contact_name} key={entity.contact_id} />
