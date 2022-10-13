@@ -33,7 +33,7 @@ export default function Command() {
 
   return (
     <Form
-      actions={
+      actions={(
         <ActionPanel>
           <Action.SubmitForm
             title="Submit Expense"
@@ -48,13 +48,17 @@ export default function Command() {
           />
           <Action title="Clear Cache" onAction={clearCache} />
         </ActionPanel>
-      }
+      )}
     >
       <Form.DatePicker id="expenseDate" title="Expense Date" value={expenseDate} onChange={setExpenseDate} />
       <Form.Dropdown id="vendor" title="Select Vendor" value={vendor} onChange={setVendor}>
         <Form.Dropdown.Item value="" title="Keine Angabe" key="0" />
         {vendors.map((entity) => (
-          <Form.Dropdown.Item value={entity.contact_id} title={entity.contact_name} key={entity.contact_id} />
+          <Form.Dropdown.Item
+            value={entity.contact_id}
+            title={entity.contact_name}
+            key={entity.contact_id}
+          />
         ))}
       </Form.Dropdown>
       <Form.Checkbox
@@ -74,7 +78,11 @@ export default function Command() {
       )}
       <Form.Dropdown id="chartOfAccount" title="Select Account" value={account} onChange={setAccount} storeValue>
         {accounts.map((entity) => (
-          <Form.Dropdown.Item value={entity.account_id} title={entity.account_name} key={entity.account_id} />
+          <Form.Dropdown.Item
+            value={entity.account_id}
+            title={entity.account_name}
+            key={entity.account_id}
+          />
         ))}
       </Form.Dropdown>
       <Form.Dropdown
@@ -89,7 +97,11 @@ export default function Command() {
         storeValue
       >
         {bankAccounts.map((entity) => (
-          <Form.Dropdown.Item value={entity.account_id} title={entity.account_name} key={entity.account_id} />
+          <Form.Dropdown.Item
+            value={entity.account_id}
+            title={entity.account_name}
+            key={entity.account_id}
+          />
         ))}
       </Form.Dropdown>
       {isCreditCard && (
