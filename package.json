@@ -2,7 +2,7 @@
   "$schema": "https://www.raycast.com/schemas/extension.json",
   "name": "zoho",
   "title": "Zoho",
-  "description": "",
+  "description": "Create expense in Zoho Books",
   "icon": "command-icon.png",
   "author": "David",
   "owner": "woda",
