@@ -15,19 +15,24 @@ export const postReceipt = async (expenseId: string, path: string, fileName: str
   const requestOptions = await getRequestOptions();
   const form = new FormData();
   const stream = fs.createReadStream(path);
+  const shortenedFileName = fileName.length > 100 ? fileName.slice(0, 96) + '.pdf' : fileName;
+  form.append('receipt', stream, shortenedFileName);
 
-  form.append('receipt', stream, fileName);
-
-  const response: {
+  let response: {
     code?: number;
     message?: string;
-  } | null = await got
-    .post(url, {
-      ...requestOptions,
-      body: form,
-      encoding: 'utf8',
-    })
-    .json();
+  } | null = null;
+  try {
+    response = await got
+      .post(url, {
+        ...requestOptions,
+        body: form,
+        encoding: 'utf8',
+      })
+      .json();
+  } catch (error) {
+    console.error(error);
+  }
 
   if (typeof response !== 'object' || response === null) {
     return Promise.resolve({

@@ -24,7 +24,6 @@ export default function Command() {
   const [creditCardDate, setCreditCardDate] = useState<Date>();
   const [amount, setAmount] = useState('');
   const [receipt, setReceipt] = useState('');
-  // const [checkedEmpty, setCheckedEmpty] = useState(false);
   const vendors = useVendors();
   const accounts = useChartOfAccounts();
   const bankAccounts = useBankAccounts();

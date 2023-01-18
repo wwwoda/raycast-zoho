@@ -13,7 +13,7 @@ export const buildFileNameWithoutExtension = (values: Values): string =>
     values.expenseDate.toISOString().slice(0, 10).replace(/-/g, ''),
     `EUR ${Number(values.amount.replace(',', '.')).toFixed(2)}`,
     getVendorNameById(values.vendor),
-    values.expenseReference,
+    values.customExpenseReference || values.expenseReference,
   ]
     .filter((n) => n)
     .join(' - ');
