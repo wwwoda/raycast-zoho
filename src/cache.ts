@@ -32,7 +32,7 @@ export interface CacheConfSetOptions {
   readonly maxAge?: number;
 }
 
-export interface CacheConf<T> extends Conf<T> {
+export interface CacheConf<T extends Record<string, any>> extends Conf<T> {
   isExpired: (key: T) => boolean;
 
   get<Key extends keyof T>(key: Key, options?: CacheConfGetOptions): T[Key];

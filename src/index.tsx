@@ -20,8 +20,8 @@ export default function Command() {
   const [customExpenseReference, setCustomExpenseReference] = useState('');
   const [isCreditCard, setIsCreditCard] = useState(false);
   const [tax, setTax] = useState('');
-  const [expenseDate, setExpenseDate] = useState<Date>();
-  const [creditCardDate, setCreditCardDate] = useState<Date>();
+  const [expenseDate, setExpenseDate] = useState<Date | null>();
+  const [creditCardDate, setCreditCardDate] = useState<Date | null>();
   const [amount, setAmount] = useState('');
   const [receipt, setReceipt] = useState('');
   const vendors = useVendors();
