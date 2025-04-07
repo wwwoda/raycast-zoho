@@ -11,6 +11,7 @@ export interface BaseResponse {
     has_more_page: boolean;
     report_name: string;
     applied_filter: string;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     custom_fields: Array<any>;
     sort_column: string;
     sort_order: string;
@@ -35,7 +36,7 @@ export const getRequestOptions = async () => ({
 export const fetchData = async <T, Params>(
   path: string,
   page = 1,
-  searchParams: Params | Record<string, unknown> = {}
+  searchParams: Params | Record<string, unknown> = {},
 ) => {
   const { organizationID } = getPreferenceValues();
   const requestOptions = await getRequestOptions();
@@ -57,13 +58,12 @@ export const fetchData = async <T, Params>(
 export const fetchPagedData = async <T, K extends BaseResponse, Params>(
   fetchDataCallback: (page: number, params: Params | Record<string, unknown>) => Promise<K>,
   extractorCallback: (response: K) => T[],
-  params: Params | Record<string, unknown> = {}
+  params: Params | Record<string, unknown> = {},
 ) => {
   let data: T[] = [];
   let page = 1;
   let finished = false;
   while (finished === false) {
-    // eslint-disable-next-line no-await-in-loop
     const response = await fetchDataCallback(page, params);
     const responseItems = extractorCallback(response);
     data = [...data, ...responseItems];

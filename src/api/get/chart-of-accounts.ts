@@ -15,5 +15,5 @@ export const fetchAllChartOfAccounts = async (params: BaseQueryParameters = {}) 
   fetchPagedData<ChartOfAccountEntity, ChartOfAccountsReponse, BaseQueryParameters>(
     fetchChartOfAccounts,
     extractChartOfAccountsFromResponse,
-    params
+    params,
   );

@@ -7,7 +7,6 @@ export const useTaxes = () => {
   const [entities, setEntities] = useState<TaxEntity[]>([]);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     (async () => {
       const cachedData = getCachedTaxes();
       if (cachedData.length > 0) {

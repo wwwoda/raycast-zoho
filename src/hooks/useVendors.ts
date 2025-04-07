@@ -7,7 +7,6 @@ export const useVendors = () => {
   const [entities, setEntities] = useState<ContactEntity[]>([]);
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/no-floating-promises
     (async () => {
       const cachedData = getCachedVendors();
       if (cachedData.length > 0) {
@@ -16,7 +15,7 @@ export const useVendors = () => {
       }
       const response = await fetchAllVendors();
       const filteredEntities = response.filter(
-        (entity) => entity.contact_type === 'vendor' && entity.status === 'active'
+        (entity) => entity.contact_type === 'vendor' && entity.status === 'active',
       );
       setCache(KEY_VENDOR_ENTITIES, filteredEntities);
       setEntities(filteredEntities);

@@ -37,7 +37,7 @@ export const getBankAccountNameById = (id: string): string | null => {
 export const setCache = <Key extends keyof ZohoCache, Value extends ZohoCache[Key]>(
   key: Key,
   value: Value,
-  options?: CacheConfSetOptions
+  options?: CacheConfSetOptions,
 ) => {
   cache.set(key, value, { ...defaultCacheOptions, ...options });
 };
@@ -57,7 +57,7 @@ export const getLastCachedExpenseEntityByVendorId = (vendorId: string): ExpenseE
 export const setCachedExpenseEntitiesForVendor = (
   vendorId: string,
   entities: ExpenseEntity[],
-  options?: CacheConfSetOptions
+  options?: CacheConfSetOptions,
 ) => {
   const allExpenseEntities = getCachedExpenses() || {};
   allExpenseEntities[vendorId] = entities;

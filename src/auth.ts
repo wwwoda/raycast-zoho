@@ -34,8 +34,8 @@ export const fetchNewAccessToken = async (): Promise<string> => {
         client_secret: clientSecret,
         grant_type: 'refresh_token',
       },
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     })
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     .json<Record<string, any>>();
 
   if (response?.access_token) {

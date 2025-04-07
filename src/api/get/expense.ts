@@ -55,5 +55,5 @@ export const fetchAllExpenses = async (params: ExpenseQueryParameters = {}) =>
   fetchPagedData<ExpenseEntity, ExpensesReponse, ExpenseQueryParameters>(
     fetchExpenses,
     extractExpensesFromResponse,
-    params
+    params,
   );

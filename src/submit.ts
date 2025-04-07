@@ -22,12 +22,11 @@ export const handleSubmit = async (values: Values) => {
   move(
     values.receipt,
     getDestinationFile(values),
-    // eslint-disable-next-line @typescript-eslint/no-misused-promises
+
     async () => {
-      // eslint-disable-next-line no-void
       void showToast({ title: 'Success' }).then(() => {
         void popToRoot();
       });
-    }
+    },
   );
 };

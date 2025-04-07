@@ -1,12 +1,9 @@
-/* eslint-disable max-len */
 import { environment } from '@raycast/api';
 import Conf from 'conf';
 // import { createRequire } from 'module';
-import type {
-  ChartOfAccountEntity, BankAccountEntity, ContactEntity, ExpenseEntity, TaxEntity,
-} from './types';
+import type { ChartOfAccountEntity, BankAccountEntity, ContactEntity, ExpenseEntity, TaxEntity } from './types';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const Cache = require('cache-conf');
 // const Cache = createRequire(import.meta.url)('cache-conf');
 
@@ -32,6 +29,7 @@ export interface CacheConfSetOptions {
   readonly maxAge?: number;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export interface CacheConf<T extends Record<string, any>> extends Conf<T> {
   isExpired: (key: T) => boolean;
 
@@ -40,7 +38,7 @@ export interface CacheConf<T extends Record<string, any>> extends Conf<T> {
   get<Key extends string, Value = unknown>(
     key: Exclude<Key, keyof T>,
     defaultValue?: Value,
-    options?: CacheConfGetOptions
+    options?: CacheConfGetOptions,
   ): Value;
   get(key: string, defaultValue?: unknown, options?: CacheConfGetOptions): unknown;
 
@@ -50,11 +48,10 @@ export interface CacheConf<T extends Record<string, any>> extends Conf<T> {
   set<Key extends keyof T>(
     key: Partial<T> | Key | string,
     value?: T[Key] | unknown,
-    options?: CacheConfSetOptions
+    options?: CacheConfSetOptions,
   ): void;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-call
 const cache: CacheConf<ZohoCache> = new Cache({
   configName: environment.extensionName,
   cwd: environment.supportPath,

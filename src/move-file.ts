@@ -1,7 +1,7 @@
-/* eslint-disable @typescript-eslint/ban-types */
 import fs from 'fs';
 import path from 'path';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Func = (oldPath: string, newPath: string, callback: (...args: any[]) => unknown) => void;
 
 export const copy: Func = (oldPath, newPath, callback) => {
