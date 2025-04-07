@@ -23,7 +23,7 @@ export interface BaseQueryParameters {
   per_page?: number;
 }
 
-export const API_URL_BASE = 'https://books.zoho.com/api/v3';
+export const API_URL_BASE = 'https://www.zohoapis.com/books/v3';
 
 export const getRequestOptions = async () => ({
   headers: {
