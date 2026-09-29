@@ -1,2 +1,5 @@
 alfred
 node_modules
+
+# Raycast specific files
+raycast-env.d.ts
